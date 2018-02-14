@@ -1,0 +1,39 @@
+git init 
+
+git add .
+
+git rm --cached second.txt
+git status
+
+git add second.txt
+
+git config --global user.email "zeyad.farid@guc.edu.eg"
+
+git commit -m "first commit"
+
+git remote add origin https://github.com/zeyadezzat/sprint0
+
+git pull origin master --allow-unrelated-histories
+git push origin master
+
+git branch ReadMe
+
+git checkout ReadMe
+
+git add README.md
+
+git commit -m "second commit"
+
+git pull origin master
+
+git checkout master
+
+git merge ReadMe
+
+git push origin master
+
+git add allmycommand.txt
+
+git commit -m "AllMyCommand commit"
+
+git push origin master
