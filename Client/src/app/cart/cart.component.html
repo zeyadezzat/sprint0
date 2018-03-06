@@ -1,0 +1,37 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-9">
+        <h1 style=font-size:3em;>Cart</h1>
+      </div>
+      <div class="col-md-3">
+        <div class="container-btn">
+          <button class="btn {{ hb.class }} btn-demo" style=float:right; (click)="checkout()">Total Price: {{ this.cart.totalPrice | currency }}
+            <br /> Checkout</button>
+        </div>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="cart.products" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)"
+      (editConfirm)="onEditConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<div id="myModal" class="modal" [style.display]="this.showModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Checkout</h2>
+      <span class="close" (click)="this.closeModal()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <p>Total cost: {{this.cart.totalPrice | currency}}</p>
+      <label for="address">Shipping address: </label>
+      <input style="border-radius: 0.5vw;" [(ngModel)]="this.shippingAddress" placeholder=" Type the shipping address">
+      <button class="btn {{ hb.class }} btn-demo" style="float:right;" (click)="this.postOrders()">confirm order</button>
+    </div>
+  </div>
+
+</div>

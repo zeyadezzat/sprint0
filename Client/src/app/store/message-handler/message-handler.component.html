@@ -1,0 +1,8 @@
+<div class="container alert">
+  <div *ngIf="messageService.isError" class="alert alert-danger" role="alert">
+    <strong>Error</strong> {{messageService.message}}
+  </div>
+  <div *ngIf="messageService.isSuccess" class="alert alert-success" role="alert">
+    <strong>Success</strong> {{messageService.message}}
+  </div>
+</div>
